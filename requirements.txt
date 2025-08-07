@@ -1,0 +1,11 @@
+# pip install -r requirements.txt  # to install packages from bash
+numpy==2.3.0
+unidecode
+
+# pip list # see whats installed and what version
+# pip freeze > requirements.txt # wrrite usedp ackages to the requirements file
+# pip uninstall numpy  --to remove a package
+
+
+
+
