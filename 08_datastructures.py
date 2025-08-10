@@ -8,6 +8,33 @@
 # You want to map usernames to scores	                        dict
 
 
+# List
+# - General purpose
+# - Most widely used data structure
+# - Grow and shrink size as needed
+# - Sequence type
+# - Sortable
+
+# Tuple
+# - Immutable ( can't add or change)
+# - Usefull for fixed Data
+# - Faster than Lists
+# - Sequence type
+
+# Set
+# - Store non-duplicate items
+# - Very fast access vs Lists
+# - Math Set operations ( union, intersect)
+# - Unordered
+
+# Dict
+# - Key/Value pairs
+# - Associative array, like Java HashMap
+# - Unordered
+
+
+
+
 mylist = [1, 2, 3, 4, 5]  # List
 print("mylist", mylist)
 myset = {1, 2, 3, 4, 5}  # Set
@@ -60,9 +87,9 @@ print(cars)
 
 
 list1 = ["abc", 34, True, 40, "male"]
-print(type(mylist))
+print(type(list1))
 
-
+print("".join(list1))
 
 # Sets
 # A set is a collection which is unordered, unchangeable*, and unindexed.

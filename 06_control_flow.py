@@ -105,9 +105,9 @@ print(5 == 5 or 8 > 5 and 6 < 4)  # True
 print((5 == 5 or 8 > 5) and 6 < 4)  # False
 
 # execise:
-# check if password is at least 8 chars lon and doesn to contain spaces.
-password = "fdfddf54"
-print(len(password) >= 8 and " " not in password)
+# check if password is at least 8 chars long and does not contain spaces.
+mypw = "fdfddf54"
+print(len(mypw) >= 8 and " " not in mypw)
 
 # check if user's email is nopt empty, contains '@' and ends with '.com
 user_email = "bob.sinclair@music.com"
