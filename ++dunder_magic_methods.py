@@ -187,9 +187,9 @@ class DatabaseConnection:
         return self
 
     def __exit__(self, exc_type, exc_value, traceback):
-        """clsoe the connection"""
+        """close the connection"""
         self.connected = False
-        print(f"Disconnected to the database '{self.database_name}'.")
+        print(f"Disconnected from the database '{self.database_name}'.")
         # Handle any exceptions
         if exc_type:
             print(f"An exception occurred: {exc_value}")

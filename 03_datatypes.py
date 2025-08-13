@@ -6,8 +6,8 @@
 # --------------------
 
 # basics
-import re
-import unicodedata
+# import re
+# import unicodedata
 from datetime import datetime, date
 
 a = 10  # int
@@ -68,3 +68,62 @@ mydict = {"a": 1, "b": 2, "c": 3}  # Dict
 print("mydict", mydict)
 myArray = ['i', [10, 20]]  # Array (List in Python)
 print("myArray", myArray)
+
+# --------------------
+# we can define variables as having a certain datatype. 
+# This will cause warnings in our sourcecode when developing but on't throw errors in runtime if we don't respect these types:
+
+# For example of type hint on a variable. 
+Age: int = 10 
+
+# the same can be done on functions, both for input variables as outputs. for no output, we can even define output None
+def print_age(age: int) -> None:
+    print(f"The given age is {age}")
+
+
+# the same can be done on functions, both for input variables as outputs. for no output, we can even define output None
+def validate_email(email_input: str) -> bool:
+    if email_input == 'bb':
+        return False
+    return True
+
+print(validate_email(11))   # as expected the type checker indicates 11 is not a string
+
+# --------------------
+# Constants 
+
+# Again python won't enforce this at runtime, but our type checker should warn is not to alter a constant , if we use Final
+# we do need to set or type checker, pylance to strict "python.analysis.typeCheckingMode" = "standard" or higher in our settings.json
+from typing import Final
+
+VERSION: Final[str] = '10.0.0.1'
+VERSION = '10.2'
+print(VERSION)
+
+
+
+# more examples of defining datatypes to be used on fuctions
+def validate_email(email_input: str) -> bool:
+    if email_input == 'bb':
+            return False 
+    return True
+
+validate_email("bob@burgers.com")
+print(validate_email("valid"))
+
+class Car:
+    def __init__(self, make: str , maxspeed: int) -> None:
+        self.make: str = make
+        self.maxspeed: int = maxspeed
+    
+    def __str__(self) -> str:
+        return self.make
+
+    def chiptune(self, speed_increase: int) -> None:
+        self.maxspeed += speed_increase
+
+
+toyota  = Car("Toyota", 150)
+print(toyota)
+toyota.chiptune(30)
+print(toyota.maxspeed)

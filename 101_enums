@@ -1,0 +1,58 @@
+# -------------------------
+# Enums, example 1 
+from enum import Enum
+
+class Color(Enum):   # define class Color and inherit from Enum
+    RED = 'R'
+    BLUE = 'B'
+    GREEN = 'G'
+
+class Status(Enum):   # define class Color and inherit from Enum
+    IDLE = 0
+    IN_PROGRESS= 1
+    STOPPED = 2
+    ERROR = 3
+
+
+print(Color.RED)
+print(Color.GREEN)
+print(Color.BLUE)
+print(Color("R"))
+print(repr(Color.RED))
+
+print(Status(3))
+print(Status.IDLE)
+
+def create_car(color: Color) -> None:
+    match color:
+        case Color.RED:
+            print(f"you've created a red car")
+        case Color.BLUE:
+            print(f"you've created a blue car")
+        case Color.GREEN:
+            print(f"you've created a green car")
+        case _:
+            print(f"invalid color {color}")
+
+create_car('PURPLE') # our typechecker will warn about this. and so will our function: "invalid color PURPLE"
+create_car(Color.RED) # unless we use colors from our Color Enum.
+
+# ------------------------------------------------
+#flag works like enum , but allows us to combine constants.
+from enum import Flag
+
+class ColorFlag(Flag):
+    RED = 1
+    GREEN = 2
+    BLUE = 4
+    YELLOW = 8
+    BLACK = 16
+# why using powers of two , it prevents the combination of values to form an existing value from our enum.
+
+cool_colors: ColorFlag = ColorFlag.RED | ColorFlag.YELLOW | ColorFlag.BLACK    # Pipe = union operator
+my_car_color: ColorFlag = ColorFlag.BLACK
+
+if my_car_color in cool_colors:
+    print("You have a cool car!")
+else:
+    print("Sorry, your car isn't cool.")

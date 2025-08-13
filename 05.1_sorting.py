@@ -1,6 +1,3 @@
-import random
-from collections import Counter
-
 # sorting tuples in an array
 student_tuples = [
     ('john', 'A', 15),
@@ -22,5 +19,5 @@ print (type(counts2_dict))
 print(sorted(counts2_dict.items()))  # sort by first element of tuple
 print(sorted(counts2_dict.items(), reverse=True))   #reverse sort 
 
-# sort by value of each tuple in the dict
+# sort by value of each tuple in the dict using a lambda function
 print(sorted(counts2_dict.items(),key=lambda item: item[1])) 

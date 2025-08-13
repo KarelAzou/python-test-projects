@@ -1,20 +1,21 @@
-from pytube import YouTube
+#----------------------
+# Decorators
+# Let us modify functions without changing their code
+# https://www.geeksforgeeks.org/python/decorators-in-python/
+# A simple decorator function to measure tame taken of a function:
+import time
+def timer(func):
+  
+    def wrapper():
+        t1 = time.time()
+        res = func()
+        t2 = time.time()
+        print(f"function {str(func.__name__)} took {round((t2 - t1)* 1000,4)} ms")
+    return wrapper
 
-try:
-    # Ask the user to input the YouTube URL
-    url = input("Enter the YouTube URL: ")
-    
-    yt = YouTube(url)
-    
-    print("Title:", yt.title)
-    print("Views:", yt.views)
+# Applying the decorator to a function
+@timer
+def greet():
+    print("Hello, World!")
 
-    # Get the highest resolution stream
-    yd = yt.streams.get_highest_resolution()
-    
-    # Download the video to the current directory
-    yd.download()
-    
-    print("Download complete.")
-except Exception as e:
-    print("An error occurred:", str(e))
+greet()

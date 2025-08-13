@@ -93,6 +93,7 @@ print(isinstance(x, datetime.time))
 
 
 #I generate 100 random dice rolls and I want to count how often each number occured
+
 numbers = []
 for i in range (100):
     numbers.append(random.randint(1,6))
@@ -109,16 +110,16 @@ counts = sorted(counts.items(), reverse=True)   #reverse sort
 print(f"sorted counts: {counts}")
 
 # option 2, manually
-counts = {}
+counts2 = {}
 for num in numbers:
-    if num in counts:
-        counts[num] += 1
+    if num in counts2:
+        counts2[num] += 1
     else:
-        counts[num] = 1
+        counts2[num] = 1
 
-counts = sorted(counts.items())
+sortedCounts = sorted(counts2.items())
 
-print(f"counts: {counts}")
+print(f"counts: {sortedCounts}")
 
 # option 4 Using pandas (Overkill unless you're already using it)
 # import pandas as pd 
